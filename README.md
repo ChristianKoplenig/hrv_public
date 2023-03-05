@@ -12,14 +12,8 @@ kernel 3.9.15
     csv --> workdir
 
 ## function declaration
-    rename_sub10.py --> fixes issue with missing leading '0' in csv files
     csv_prepare.py --> copy files to workdir, create column measurement, format timestamp
     create_df.py --> create df with all data
-
-## input josef
-    3min Messung
-    10s Intervall f(Atemzyklusdauer)
-    pro Atemzug --> (diff HR max/HR min)Mittelwert
 
 ## daily hrv report
     limitations: 2 measurements in select process --> because of rolling median calculation (index via column number from select_measurement dataframe)
@@ -29,12 +23,7 @@ kernel 3.9.15
     take measurement with hrv logger app
     export reading in app to folder /downloads/hrv_logger (on smartphone locally)
     foldersync app syncs hrv_logger folder to pcloud (instant sync, one way)
-    hrv alias --> starts hrv_morning_check.py
-                    quarto --> render daily_hrv.ipynb to html
-                    eog --> shows output of cell 8 as png in gnome picture viewer
-
-## quarto - jupyter notebook rendering
-    https://quarto.org/docs/tools/jupyter-lab.html
+    call hrv input in obsidian --> get python output as images via command line 
 
 ## todo
 - [ ] create_df &rarr; column rename function
