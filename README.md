@@ -1,10 +1,13 @@
-# hrv_logger
+# <center> Analyse Heartratevariability Data  <center>
+
+## hrv_logger
 data input from hrv logger app (Altini)
 
 https://www.hrv.tools/hrv-logger-faq.html
 
 ## python setup
 kernel 3.9.15
+seaborn objects plot library
 
 ## folder structure
     csv_raw --> import folder, folder to copy from
@@ -16,18 +19,15 @@ kernel 3.9.15
     create_df.py --> create df with all data
 
 ## daily hrv report
-    limitations: 2 measurements in select process --> because of rolling median calculation (index via column number from select_measurement dataframe)
-    timestamp 1hour false
+limitations: 2 measurements in select process --> because of rolling median calculation (index via column number from select_measurement dataframe)
 
 ## workflow
-    take measurement with hrv logger app
-    export reading in app to folder /downloads/hrv_logger (on smartphone locally)
-    foldersync app syncs hrv_logger folder to pcloud (instant sync, one way)
-    call hrv input in obsidian --> get python output as images via command line 
-
-## todo
-- [ ] create_df &rarr; column rename function
-- [ ] csv_prepare &rarr; implement timezone
-- [ ] morgen/abend uebung vertauscht, genau zuordnen
-- [ ] compare dehnen/atmen with ortho
-- [ ] calculate rmssd with more measurement points
+use Polar H10 HR-Belt
+take measurement with hrv logger app
+export reading in app to folder /downloads/hrv_logger (on smartphone locally)
+foldersync app syncs hrv_logger folder to cloud (manuall sync, one way)
+input folder for python is the target folder for foldersync app (csv_raw)
+copy csv files to python workdirectory via script (csv_prepare)
+analyse data in python and generate .png outputfile
+in obsidian load python output via cli tool 
+view sematic data and hrv logger data in myHealth.md
