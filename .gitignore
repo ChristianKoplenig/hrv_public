@@ -1,6 +1,3 @@
-csv_backup/
-csv_raw/
-csv/
 .vscode/
 __pycache__/
 .ipynb_checkpoints/
