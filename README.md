@@ -40,3 +40,4 @@ https://www.hrv.tools/hrv-logger-faq.html
 - 2 measurements in select process --> because of rolling median calculation (index via column number from select_measurement dataframe)
 - Seaborn.objects interface uses UTC timestamps
 - Last measurement --> evening measurement x-label not correct
+- Obsidian output --> No proper legend
