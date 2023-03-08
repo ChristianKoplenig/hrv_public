@@ -1,34 +1,42 @@
-# <center> Analyse Heartratevariability Data  <center>
+# <center> Analyse Heartratevariability (HRV) Data  <center>
+## Introduction
+Static snapshot of the data exploration setup for analysis of heartrate related data. So far the focus is on time-domain values (heartrate (hr) / root mean square of successive differences (rmssd)) because these are the most intuitive values. In this setup no data analysis is implemented, it's sole use is for exploring the input data and generating a simple daily/weekly overview of trends for hr/rmssd values.
 
-## hrv_logger
-data input from hrv logger app (Altini)  
-
-https://www.hrv.tools/hrv-logger-faq.html
-
-## python setup
-kernel 3.9.15  
-seaborn version 0.12 needed for seaborn.objects library  
+## Python setup
+Kernel 3.9.15  
+Seaborn version 0.12 needed for obsidian plots  
 https://seaborn.pydata.org/tutorial/objects_interface  
 
-## folder structure
-    csv_raw --> import folder, folder to copy from
+## Folder structure
+    csv_raw --> shared import folder for raw hrv_logger output
     csv_backup --> backup folder for raw input files
-    csv --> workdir
+    csv --> python working directory
 
-## function declaration
+## Function declaration
     csv_prepare.py --> copy files to workdir, create column measurement, format timestamp
-    create_df.py --> create df with all data
+    create_df.py --> create main dataframe with all input data 
 
-## daily hrv report
-limitations: 2 measurements in select process --> because of rolling median calculation (index via column number from select_measurement dataframe)
+## Workflow
+- Smartphone
+    - Use Polar H10 HR-Belt  
+    - Take measurement with hrv logger app  
+    - Export reading from app to local folder on phone   
+- Cloud
+    - Foldersync app syncs hrv_logger folder to cloud (autosync, one way)  
+    - Input folder for Python is the target folder for Foldersync app (csv_raw)  
+- Python
+    - Copy csv files to Python workdirectory via script (csv_prepare)  
+    - Explore data in Python and generate .png outputfile  
+- Obsidian
+    - Load Python output via cli tool  
+    - View sematic data and hrv logger data in dynamically generated markdown file  
 
-## workflow
-use Polar H10 HR-Belt  
-take measurement with hrv logger app  
-export reading in app to folder /downloads/hrv_logger (on smartphone locally)  
-foldersync app syncs hrv_logger folder to cloud (manuall sync, one way)  
-input folder for python is the target folder for foldersync app (csv_raw)  
-copy csv files to python workdirectory via script (csv_prepare)  
-analyse data in python and generate .png outputfile  
-in obsidian load python output via cli tool  
-view sematic data and hrv logger data in myHealth.md  
+## Hrv_logger app
+Documentation for app and sience background information on Hrv data  
+https://www.hrv.tools/hrv-logger-faq.html
+
+
+## Limitations
+- 2 measurements in select process --> because of rolling median calculation (index via column number from select_measurement dataframe)
+- Seaborn.objects interface uses UTC timestamps
+- Last measurement --> evening measurement x-label not correct
