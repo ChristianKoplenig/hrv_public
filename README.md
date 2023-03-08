@@ -1,4 +1,6 @@
-# <center> Analyse Heartratevariability (HRV) Data  <center>
+# Analyse Heartratevariability (HRV) Data  
+main file: daily_hrv.ipynb
+
 ## Introduction
 Static snapshot of the data exploration setup for analysis of heartrate related data. So far the focus is on time-domain values (heartrate (hr) / root mean square of successive differences (rmssd)) because these are the most intuitive values. In this setup no data analysis is implemented, it's sole use is for exploring the input data and generating a simple daily/weekly overview of trends for hr/rmssd values.
 
